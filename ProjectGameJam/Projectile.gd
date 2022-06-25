@@ -18,3 +18,4 @@ func _physics_process(delta):
 		var name = collision.collider.name
 		if collision.collider.has_method("hit_by_projectile"):
 			collision.collider.call("hit_by_projectile", type)
+			self.queue_free()

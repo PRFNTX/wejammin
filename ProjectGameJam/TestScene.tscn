@@ -40,5 +40,4 @@ collision_layer = 0
 
 [node name="Projectile" parent="." instance=ExtResource( 2 )]
 position = Vector2( 281, 391 )
-collision_layer = 2
 direction = 0.0
