@@ -1,26 +1,28 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 var player_speed = 400
 
 var move_up = false
 var move_down = false
 var move_left = false
 var move_right = false
+
+var max_health = 5
+var current_health = 5 setget change_health
+
+
+func _ready():
+	
+	$Healthbar.max_value = max_health
+	$Healthbar.value = current_health
+	
+func change_health(new_health_value):
+	if new_health_value == 0:
+		self.queue_free()
+	else:
+		current_health = new_health_value
+		$Healthbar.value = new_health_value
+
 
 
 func _physics_process(delta):
@@ -45,7 +47,10 @@ func _physics_process(delta):
 	if collision != null:
 		print(collision)
 	
-
+func hit_by_projectile(type):
+	if type == Projectile.projectile_types.RED:
+		change_health(current_health - 1)
+	
 func _input(event):
 	if event is InputEventKey:
 		if event.is_action("move_up"):

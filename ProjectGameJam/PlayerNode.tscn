@@ -4,7 +4,6 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 28.0179
 
 [node name="PlayerNode" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -14,3 +13,10 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+margin_left = -27.0
+margin_top = -62.0
+margin_right = -23.0
+margin_bottom = -48.0
+rect_scale = Vector2( 39.28, 1.32 )

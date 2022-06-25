@@ -11,20 +11,20 @@
 position = Vector2( 73, 65 )
 
 [node name="Turret" parent="Rail" instance=ExtResource( 4 )]
-position = Vector2( 196.174, -5.04165 )
+position = Vector2( 196.174, -5.04139 )
 rotation = -0.125518
 offset = 188.33
 projectile = ExtResource( 2 )
 
 [node name="Turret2" parent="Rail" instance=ExtResource( 4 )]
 position = Vector2( 732.767, 70.8371 )
-rotation = 0.621845
+rotation = 0.621852
 offset = 738.03
 projectile = ExtResource( 2 )
 
 [node name="Turret3" parent="Rail" instance=ExtResource( 4 )]
 position = Vector2( 478.889, 451.373 )
-rotation = 3.0496
+rotation = 3.04959
 offset = 1400.75
 projectile = ExtResource( 2 )
 
