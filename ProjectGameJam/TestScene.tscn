@@ -1,7 +1,44 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://PlayerNode.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Rail" parent="." instance=ExtResource( 3 )]
+position = Vector2( 73, 65 )
+
+[node name="Turret" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 196.174, -5.04165 )
+rotation = -0.125518
+offset = 188.33
+projectile = ExtResource( 2 )
+
+[node name="Turret2" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 732.767, 70.8371 )
+rotation = 0.621845
+offset = 738.03
+projectile = ExtResource( 2 )
+
+[node name="Turret3" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 478.889, 451.373 )
+rotation = 3.0496
+offset = 1400.75
+projectile = ExtResource( 2 )
+
+[node name="Turret4" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 18.6209, 436.373 )
+rotation = -1.96018
+offset = 1867.67
+projectile = ExtResource( 2 )
+
 [node name="PlayerNode" parent="." instance=ExtResource( 1 )]
+position = Vector2( 368, 213 )
+collision_layer = 0
+
+[node name="Projectile" parent="." instance=ExtResource( 2 )]
+position = Vector2( 281, 391 )
+collision_layer = 2
+direction = 0.0

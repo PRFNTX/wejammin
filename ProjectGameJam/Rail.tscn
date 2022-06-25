@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -68.2582, 112.705, 68.2582, -112.705, 26, 64, -141.279, -100.006, 141.279, 100.006, 733, 71, 54.7653, -54.7653, -54.7653, 54.7653, 766, 395, 31.748, 53.9716, -31.748, -53.9716, 21, 441, -27.7795, 23.0173, 27.7795, -23.0173, 25, 65 )
+}
+
+[node name="Rail" type="Path2D"]
+position = Vector2( 90, 75 )
+curve = SubResource( 1 )
