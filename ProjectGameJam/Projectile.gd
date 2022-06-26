@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 class_name Projectile
 
 export(float) var direction = 1.2
@@ -26,10 +26,11 @@ func _physics_process(delta):
 	if age > life_time:
 		self.queue_free()
 	
-	var collision = move_and_collide(Vector2(cos(direction), sin(direction))*speed*delta)
-	if collision != null:
-		print(collision.collider.name)
-		var name = collision.collider.name
-		if collision.collider.has_method("hit_by_projectile"):
-			collision.collider.call("hit_by_projectile", type)
-			self.queue_free()
+	position += (Vector2(cos(direction), sin(direction))*speed*delta)
+
+func _on_Projectile_body_entered(body):
+	var name = body.name
+	if body.has_method("hit_by_projectile"):
+		body.call("hit_by_projectile", type)
+	self.queue_free()
+

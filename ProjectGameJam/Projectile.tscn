@@ -6,7 +6,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Projectile" type="KinematicBody2D"]
+[node name="Projectile" type="Area2D"]
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -21,3 +21,5 @@ script = ExtResource( 3 )
 
 [node name="DebugArrow" parent="." instance=ExtResource( 2 )]
 rotation = -0.370796
+
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]

@@ -63,7 +63,7 @@ func _physics_process(delta):
 		horizontal_speed,
 		vertical_speed
 	)
-	var collision = move_and_slide(initial_velocity)
+	var collision = move_and_collide(initial_velocity * delta)
 	if collision != null:
 		pass
 	
