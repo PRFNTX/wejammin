@@ -20,12 +20,14 @@ projectile = ExtResource( 2 )
 position = Vector2( 732.767, 70.8371 )
 rotation = 0.621852
 offset = 738.03
+type = 1
 projectile = ExtResource( 2 )
 
 [node name="Turret3" parent="Rail" instance=ExtResource( 4 )]
 position = Vector2( 478.889, 451.373 )
 rotation = 3.04959
 offset = 1400.75
+type = 1
 projectile = ExtResource( 2 )
 
 [node name="Turret4" parent="Rail" instance=ExtResource( 4 )]
@@ -39,5 +41,6 @@ position = Vector2( 368, 213 )
 collision_layer = 0
 
 [node name="Projectile" parent="." instance=ExtResource( 2 )]
-position = Vector2( 281, 391 )
+position = Vector2( 260, 221 )
 direction = 0.0
+type = 1

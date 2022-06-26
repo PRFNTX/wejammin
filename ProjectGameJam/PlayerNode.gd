@@ -10,11 +10,19 @@ var move_right = false
 var max_health = 5
 var current_health = 5 setget change_health
 
+var max_action_points_value = 5
+var current_action_points_value = 0
+var initial_action_point_value = 0
+var can_player_do_action = false
+
 
 func _ready():
 	
 	$Healthbar.max_value = max_health
 	$Healthbar.value = current_health
+	
+	$ActionTimeBar.max_value = max_action_points_value
+	$ActionTimeBar.value = current_action_points_value
 	
 func change_health(new_health_value):
 	if new_health_value == 0:
@@ -22,8 +30,21 @@ func change_health(new_health_value):
 	else:
 		current_health = new_health_value
 		$Healthbar.value = new_health_value
+		
+func on_player_did_action():
+	print("did action, yo")
+	can_player_do_action = false
+	current_action_points_value = initial_action_point_value
 
+func do_player_action():
+	on_player_did_action()
 
+func charge_action_bar(new_action_points_value):
+	current_action_points_value = new_action_points_value
+	$ActionTimeBar.value = new_action_points_value
+	if new_action_points_value == max_action_points_value:
+		can_player_do_action = true
+	
 
 func _physics_process(delta):
 	var horizontal_speed = 0
@@ -50,6 +71,11 @@ func _physics_process(delta):
 func hit_by_projectile(type):
 	if type == Projectile.projectile_types.RED:
 		change_health(current_health - 1)
+	elif type == Projectile.projectile_types.GREEN:
+		if current_action_points_value == max_action_points_value and can_player_do_action:
+			pass
+		else:
+			charge_action_bar(current_action_points_value + 1)
 	
 func _input(event):
 	if event is InputEventKey:
