@@ -11,28 +11,298 @@
 position = Vector2( 73, 65 )
 
 [node name="Turret" parent="Rail" instance=ExtResource( 4 )]
-position = Vector2( 196.174, -5.04139 )
-rotation = -0.125518
+position = Vector2( 184.737, -7.34378 )
+rotation = 0.286153
 offset = 188.33
 projectile = ExtResource( 2 )
 
 [node name="Turret2" parent="Rail" instance=ExtResource( 4 )]
-position = Vector2( 732.767, 70.8371 )
-rotation = 0.621852
+position = Vector2( 723.953, 64.9795 )
+rotation = 0.569559
 offset = 738.03
 type = 1
 projectile = ExtResource( 2 )
 
 [node name="Turret3" parent="Rail" instance=ExtResource( 4 )]
-position = Vector2( 478.889, 451.373 )
-rotation = 3.04959
+position = Vector2( 489.387, 450.381 )
+rotation = 3.04632
 offset = 1400.75
 type = 1
 projectile = ExtResource( 2 )
 
 [node name="Turret4" parent="Rail" instance=ExtResource( 4 )]
-position = Vector2( 18.6209, 436.373 )
-rotation = -1.96018
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret5" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret6" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret7" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret8" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret9" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret10" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret11" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret12" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret13" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret14" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret15" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret16" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret17" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret18" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret19" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret20" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret21" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret22" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret23" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret24" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret25" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret26" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret27" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret28" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret29" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret30" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret31" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret32" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret33" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret34" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret35" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret36" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret37" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret38" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret39" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret40" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret41" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret42" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret43" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret44" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret45" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret46" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret47" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret48" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
+offset = 1867.67
+projectile = ExtResource( 2 )
+
+[node name="Turret49" parent="Rail" instance=ExtResource( 4 )]
+position = Vector2( 25.0007, 445.23 )
+rotation = -2.37832
 offset = 1867.67
 projectile = ExtResource( 2 )
 
