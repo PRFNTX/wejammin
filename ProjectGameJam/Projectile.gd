@@ -5,7 +5,7 @@ export(float) var direction = 1.2
 export(float) var speed = 200.0
 
 
-var life_time = 2 #in seconds
+var life_time = 8 #in seconds
 
 enum projectile_types {
 	RED,
