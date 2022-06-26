@@ -29,6 +29,10 @@ _global_script_class_icons={
 config/name="ProjectGameJam"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneController="*res://scene_controller.gd"
+
 [input]
 
 move_up={

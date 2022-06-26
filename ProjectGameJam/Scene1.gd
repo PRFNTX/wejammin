@@ -1,10 +1,10 @@
 extends Node2D
 
-var next_scene = preload("res://TestScene2.tscn")
+onready var scene_controller = get_tree().get_root().get_node("/root/SceneController")
 
 func _ready():
 	pass # Replace with function body.
 
 
 func _on_Area2D_body_entered(body):
-	get_tree().change_scene_to(next_scene)
+	scene_controller.change_scene(0)
