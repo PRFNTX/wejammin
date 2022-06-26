@@ -63,10 +63,9 @@ func _physics_process(delta):
 		horizontal_speed,
 		vertical_speed
 	)
-	print(initial_velocity)
 	var collision = move_and_slide(initial_velocity)
 	if collision != null:
-		print(collision)
+		pass
 	
 func hit_by_projectile(type):
 	if type == Projectile.projectile_types.RED:
@@ -81,17 +80,9 @@ func _input(event):
 	if event is InputEventKey:
 		if event.is_action("move_up"):
 			move_up = event.is_action_pressed(("move_up"))
-			print(event);
-			print("move up");
 		elif event.is_action("move_down"):
 			move_down = event.is_action_pressed(("move_down"))
-			print(event);
-			print("move down");
 		elif event.is_action("move_left"):
 			move_left = event.is_action_pressed(("move_left"))
-			print(event);
-			print("move left");
 		elif event.is_action("move_right"):
 			move_right = event.is_action_pressed(("move_right"))
-			print(event);
-			print("move right")
