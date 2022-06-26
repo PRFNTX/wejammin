@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BasicTurret",
+"language": "GDScript",
+"path": "res://BasicTurret.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://Projectile.gd"
 } ]
 _global_script_class_icons={
+"BasicTurret": "",
 "Projectile": ""
 }
 
