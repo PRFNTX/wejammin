@@ -6,8 +6,11 @@ tool
 # var b = "text"
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
+	set_projectile_type()
+	
+func set_projectile_type():
 	var parent = get_parent()
 	if not "type" in parent:
 		return

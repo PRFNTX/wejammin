@@ -8,7 +8,11 @@ enum projectile_types {
 	RED,
 	GREEN,
 }
-export(projectile_types) var type = projectile_types.RED
+export(projectile_types) var type = projectile_types.RED setget set_projectile_type
+
+func set_projectile_type(new_type):
+	type = new_type
+	$Sprite.set_projectile_type()
 
 
 func _physics_process(delta):
