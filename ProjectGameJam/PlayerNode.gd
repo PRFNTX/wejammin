@@ -82,15 +82,13 @@ func _physics_process(delta):
 		horizontal_speed,
 		vertical_speed
 	).normalized()*player_speed
-	
-	var character_animation_speed = initial_velocity * 3 
-	
+		
 	if initial_velocity == Vector2.ZERO:
 		$AnimationTree.get("parameters/playback").travel("Idle")
 	else:
 		$AnimationTree.get("parameters/playback").travel("Walk")
-		$AnimationTree.set("parameters/Idle/blend_position", character_animation_speed)
-		$AnimationTree.set("parameters/Walk/blend_position", character_animation_speed)
+		$AnimationTree.set("parameters/Idle/blend_position", initial_velocity)
+		$AnimationTree.set("parameters/Walk/blend_position", initial_velocity)
 		
 	var collision = move_and_slide(initial_velocity)
 
