@@ -7,6 +7,8 @@ var move_down = false
 var move_left = false
 var move_right = false
 
+var animation_speed = 4
+
 var max_health = 5
 var current_health = 5 setget change_health
 
@@ -82,13 +84,14 @@ func _physics_process(delta):
 		horizontal_speed,
 		vertical_speed
 	).normalized()*player_speed
+	
 		
 	if initial_velocity == Vector2.ZERO:
 		$AnimationTree.get("parameters/playback").travel("Idle")
 	else:
 		$AnimationTree.get("parameters/playback").travel("Walk")
-		$AnimationTree.set("parameters/Idle/blend_position", initial_velocity)
-		$AnimationTree.set("parameters/Walk/blend_position", initial_velocity)
+		$AnimationTree.set("parameters/Idle/blend_position", initial_velocity * 50)
+		$AnimationTree.set("parameters/Walk/blend_position", initial_velocity * 50)
 		
 	var collision = move_and_slide(initial_velocity)
 
