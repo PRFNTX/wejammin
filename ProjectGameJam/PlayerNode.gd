@@ -24,15 +24,27 @@ func _ready():
 	
 	$ActionTimeBar.max_value = max_action_points_value
 	$ActionTimeBar.value = current_action_points_value
-
+	
 func kill_and_respawn():
+	get_parent().get_node("SpwawnLocation").spawn_player()
 	get_parent().get_node("SpawnLocation").spawn_player()
 	
 
+func play_player_gets_hits_animation():
+	# figure out why this shit don't work 
+	var current_animation_state = $AnimationTree.get("parameters/playback").get_current_node()
+	var is_idle = true if current_animation_state == "Idle" else false
+	$AnimationTree.get("parameters/playback").travel("Player_Hit")
+	var current_blend_position = $AnimationTree.get("parameters/Idle/blend_position")
+	print(current_blend_position)
+	$AnimationPlayer.set("parameters/Player_Hit/blend_position", current_blend_position)
+
 func change_health(new_health_value):
+	
 	if new_health_value == 0:
 		kill_and_respawn()
 	else:
+		play_player_gets_hits_animation()
 		current_health = new_health_value
 		$Healthbar.value = new_health_value
 		
@@ -48,7 +60,6 @@ func charge_action_bar(new_action_points_value):
 	$ActionTimeBar.value = new_action_points_value
 	if new_action_points_value == max_action_points_value:
 		can_player_do_action = true
-	
 
 var start_rotation = rotation
 func _physics_process(delta):
