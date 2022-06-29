@@ -127,7 +127,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=51]
 resource_name = "Player_Hit_Down"
-length = 0.8
+length = 3.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -143,7 +144,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=56]
 resource_name = "Player_Hit_Down_Left"
-length = 0.8
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -159,7 +160,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=52]
 resource_name = "Player_Hit_Down_Right"
-length = 0.8
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -175,7 +176,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=48]
 resource_name = "Player_Hit_Left"
-length = 0.8
+length = 1.2
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -192,7 +193,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=50]
 resource_name = "Player_Hit_Right"
-length = 0.8
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -208,7 +209,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=54]
 resource_name = "Player_Hit_Up"
-length = 0.8
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -224,7 +225,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=55]
 resource_name = "Player_Hit_Up_Left"
-length = 0.8
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -240,7 +241,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=53]
 resource_name = "Player_Hit_Up_Right"
-length = 0.8
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -534,7 +535,7 @@ blend_mode = 1
 states/Idle/node = SubResource( 36 )
 states/Idle/position = Vector2( 409, 213.667 )
 states/Player_Hit/node = SubResource( 49 )
-states/Player_Hit/position = Vector2( 553.667, 81.6667 )
+states/Player_Hit/position = Vector2( 581.667, 67 )
 states/Walk/node = SubResource( 45 )
 states/Walk/position = Vector2( 753.667, 219.889 )
 transitions = [ "Idle", "Walk", SubResource( 46 ), "Walk", "Idle", SubResource( 47 ), "Player_Hit", "Idle", SubResource( 65 ), "Player_Hit", "Walk", SubResource( 66 ), "Idle", "Player_Hit", SubResource( 67 ), "Walk", "Player_Hit", SubResource( 68 ) ]
@@ -587,7 +588,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 27 )
 parameters/Idle/blend_position = Vector2( -0.0603509, 0.303476 )
-parameters/Player_Hit/blend_position = Vector2( 0.995445, -0.980668 )
+parameters/Player_Hit/blend_position = Vector2( 0.529387, 0.687097 )
 parameters/Walk/blend_position = Vector2( -0.387707, -0.816845 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
