@@ -209,5 +209,5 @@ func rotate_end():
 	next()
 
 func shoot():
-	turret.fire_projectile()
+	turret.fire_projectile(turret.time_passed)
 	next()

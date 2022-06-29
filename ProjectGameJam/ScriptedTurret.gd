@@ -9,6 +9,7 @@ var rotate_speed = 0
 var actions = []
 var actionNumber = 0
 
+
 func next():
 	if (actions.size() > 0):
 		actionNumber = (actionNumber + 1) % actions.size()
