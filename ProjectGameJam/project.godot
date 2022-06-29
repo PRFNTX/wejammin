@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Projectile.gd"
 }, {
 "base": "Node",
+"class": "ProjectilePattern",
+"language": "GDScript",
+"path": "res://ProjectilePattern.gd"
+}, {
+"base": "Node",
 "class": "TurretScript",
 "language": "GDScript",
 "path": "res://TurretScript.gd"
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BasicTurret": "",
 "Projectile": "",
+"ProjectilePattern": "",
 "TurretScript": ""
 }
 
