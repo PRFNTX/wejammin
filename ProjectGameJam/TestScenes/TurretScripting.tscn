@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://BasicTilemap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PlayerNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Projectile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scene1.gd" type="Script" id=6]
+[ext_resource path="res://Turrets/TurretScript.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Turrets/ScriptedTurret.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 63, 19.75 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="BasicTilemap" parent="." instance=ExtResource( 3 )]
+
+[node name="PlayerNode" parent="BasicTilemap" instance=ExtResource( 4 )]
+position = Vector2( 1205, 417 )
+collision_layer = 0
+
+[node name="ScriptedTurret" parent="BasicTilemap" instance=ExtResource( 8 )]
+position = Vector2( 844, 549 )
+direction = 0.0
+
+[node name="Rotate" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 3
+rotate/radians = 1.57
+rotate/time = 2.0
+
+[node name="DOWN" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 2
+move/direction = 1.57
+move/speed = 200
+move/time = 2.0
+
+[node name="shoot" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 4
+shoot/projectile = ExtResource( 5 )
+shoot/projectile_speed = null
+shoot/direction = null
+shoot/type = null
+
+[node name="rotate" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 3
+rotate/radians = 1.57
+rotate/time = 2.0
+
+[node name="LEFT" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 2
+move/direction = 3.14
+move/speed = 200
+move/time = 2.0
+
+[node name="shoot3" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 4
+shoot/projectile = ExtResource( 5 )
+shoot/projectile_speed = null
+shoot/direction = null
+shoot/type = null
+
+[node name="Rotate2" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 3
+rotate/radians = 1.57
+rotate/time = 2.0
+
+[node name="UP" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 2
+move/direction = 4.61
+move/speed = 200
+move/time = 2.0
+
+[node name="shoot2" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 4
+shoot/projectile = ExtResource( 5 )
+shoot/projectile_speed = null
+shoot/direction = null
+shoot/type = null
+
+[node name="Rotate3" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 3
+rotate/radians = 1.57
+rotate/time = 2.0
+
+[node name="RIGHT" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 2
+move/direction = 0.0
+move/speed = 200
+move/time = 2.0
+
+[node name="shoot4" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 7 )]
+action_type = 4
+shoot/projectile = ExtResource( 5 )
+shoot/projectile_speed = null
+shoot/direction = null
+shoot/type = null
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 832, 87 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

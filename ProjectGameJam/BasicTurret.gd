@@ -27,4 +27,3 @@ func _physics_process(delta):
 	if reload > fire_rate:
 		reload = 0
 		fire_projectile()
-	rotation = direction

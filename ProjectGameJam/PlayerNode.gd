@@ -24,7 +24,7 @@ func _ready():
 	$ActionTimeBar.value = current_action_points_value
 
 func kill_and_respawn():
-	get_parent().get_node("SpawnLocation").spawn_player()
+	get_parent().geat_node("SpawnLocation").spawn_player()
 	
 
 func change_health(new_health_value):

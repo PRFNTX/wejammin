@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://Projectile.gd"
+}, {
+"base": "Node",
+"class": "TurretScript",
+"language": "GDScript",
+"path": "res://TurretScript.gd"
 } ]
 _global_script_class_icons={
 "BasicTurret": "",
-"Projectile": ""
+"Projectile": "",
+"TurretScript": ""
 }
 
 [application]
