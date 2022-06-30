@@ -7,6 +7,8 @@ var move_down = false
 var move_left = false
 var move_right = false
 
+var animation_speed = 4
+
 var max_health = 5
 var current_health = 5 setget change_health
 
@@ -22,12 +24,13 @@ func _ready():
 	
 	$ActionTimeBar.max_value = max_action_points_value
 	$ActionTimeBar.value = current_action_points_value
-
+	
 func kill_and_respawn():
+	get_parent().get_node("SpwawnLocation").spawn_player()
 	get_parent().get_node("SpawnLocation").spawn_player()
 	
-
 func change_health(new_health_value):
+	
 	if new_health_value == 0:
 		kill_and_respawn()
 	else:
@@ -46,14 +49,15 @@ func charge_action_bar(new_action_points_value):
 	$ActionTimeBar.value = new_action_points_value
 	if new_action_points_value == max_action_points_value:
 		can_player_do_action = true
-	
 
 var start_rotation = rotation
 func _physics_process(delta):
+	
 	var move_up = false
 	var move_left = false
 	var move_right = false
 	var move_down = false
+	
 	if Input.is_action_pressed("move_up"):
 		move_up = Input.is_action_pressed(("move_up"))
 	if Input.is_action_pressed("move_down"):
@@ -62,22 +66,32 @@ func _physics_process(delta):
 		move_left = Input.is_action_pressed(("move_left"))
 	if Input.is_action_pressed("move_right"):
 		move_right = Input.is_action_pressed(("move_right"))
+		
 	var horizontal_speed = 0
 	var vertical_speed = 0
+	
 	if move_up:
 		vertical_speed -= 1
 	if move_down:
 		vertical_speed += 1
-		
 	if move_left:
 		horizontal_speed -= 1
 	if move_right:
 		horizontal_speed += 1
 		
+		
 	var initial_velocity = Vector2(
 		horizontal_speed,
 		vertical_speed
 	).normalized()*player_speed
+	
+	if initial_velocity == Vector2.ZERO:
+		$AnimationTree.get("parameters/playback").travel("Idle")
+	else:
+		$AnimationTree.get("parameters/playback").travel("Walk")
+		$AnimationTree.set("parameters/Idle/blend_position", initial_velocity * 50)
+		$AnimationTree.set("parameters/Walk/blend_position", initial_velocity * 50)
+		
 	var collision = move_and_slide(initial_velocity)
 
 func hit_by_projectile(type):
