@@ -10,6 +10,7 @@ enum ACTIONS {
 	CUSTOM=5,
 }
 export(ACTIONS) var action_type = ACTIONS.DELAY
+export(int) var order = 0
 # ALL
 var time = 0.1
 # DELAY
@@ -125,6 +126,8 @@ func _set(property, value):
 			move_direction = value
 			return true
 		"move/speed":
+			if value == 0:
+				return true
 			move_speed = value
 			return true
 		"rotate/radians":
@@ -134,6 +137,8 @@ func _set(property, value):
 			projectile = value
 			return true
 		"shoot/projectile_speed":
+			if value == 0:
+				return true
 			projectile_speed = value
 			return true
 		"shoot/direction":
@@ -158,7 +163,6 @@ func init(in_turret):
 var timer = 0
 
 func start():
-	print(action_type)
 	if action_type == ACTIONS.DELAY:
 		delay()
 	if action_type == ACTIONS.MOVE:
@@ -179,6 +183,7 @@ func start_timer(time, on_timeout):
 	add_child(delay_timer)
 	delay_timer.start(time)
 	delay_timer.connect("timeout", self, on_timeout)
+	delay_timer.connect("timeout", delay_timer, "queue_free")
 	return delay_timer
 
 func delay():
@@ -192,7 +197,6 @@ func move():
 		turret.move_direction = move_direction
 	if move_speed != null:
 		turret.move_speed = move_speed
-	print(move_direction, move_speed)
 	start_timer(time, "move_end")
 
 func move_end():
@@ -209,5 +213,17 @@ func rotate_end():
 	next()
 
 func shoot():
+	var init_speed = turret.projectile_speed
+	var init_dir = turret.direction
+	var init_type = turret.type
+	if projectile_speed != null:
+		turret.projectile_speed = projectile_speed
+	if projectile_direction != null:
+		turret.direction += projectile_direction
+	if projectile_type != null:
+		turret.type = projectile_type
 	turret.fire_projectile(turret.time_passed)
+	turret.projectile_speed = init_speed
+	turret.direction = init_dir
+	turret.type = init_type
 	next()

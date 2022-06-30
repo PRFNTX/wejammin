@@ -26,5 +26,6 @@ func fire(time):
 		new_projectile.direction = detail.x + turret.direction
 		new_projectile.type = round(detail.z)
 		new_projectile.position = turret.global_position
+		new_projectile.lifetime = turret.projectile_lifetime
 		created_projectiles.append(new_projectile)
 		scene.add_child(new_projectile)

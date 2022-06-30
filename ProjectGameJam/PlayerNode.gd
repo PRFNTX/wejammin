@@ -24,7 +24,7 @@ func _ready():
 	$ActionTimeBar.value = current_action_points_value
 
 func kill_and_respawn():
-	get_parent().geat_node("SpawnLocation").spawn_player()
+	get_parent().get_node("SpawnLocation").spawn_player()
 	
 
 func change_health(new_health_value):
@@ -81,10 +81,10 @@ func _physics_process(delta):
 	var collision = move_and_slide(initial_velocity)
 
 func hit_by_projectile(type):
-	if type == Projectile.projectile_types.RED:
-		change_health(current_health - 1)
-	elif type == Projectile.projectile_types.GREEN:
-		if current_action_points_value == max_action_points_value and can_player_do_action:
-			pass
-		else:
-			charge_action_bar(current_action_points_value + 1)
+	#if type == Projectile.projectile_types.RED:
+	change_health(current_health - 1)
+	#elif type == Projectile.projectile_types.GREEN:
+	#	if current_action_points_value == max_action_points_value and can_player_do_action:
+	#		pass
+	#	else:
+	#		charge_action_bar(current_action_points_value + 1)

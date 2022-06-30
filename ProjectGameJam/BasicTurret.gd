@@ -1,8 +1,9 @@
 extends Node2D
 class_name BasicTurret
 
-export(float, 0, 6.28, 0.1) var direction = 1.2
+export(float, -6.28, 6.28, 0.01) var direction = 0
 export(float) var projectile_speed = 200.0
+export(float, 0, 20, 0.1) var projectile_lifetime = 8
 export(float) var fire_rate = 0.5
 export(Projectile.projectile_types) var type = Projectile.projectile_types.RED
 export(PackedScene) var projectile = null
@@ -24,7 +25,6 @@ func fire_projectile(time):
 		if children != null && children.size() > 0:
 			for child in children:
 				if child is ProjectilePattern:
-					print("load", scene)
 					child.load_pattern(self, scene)
 					patterns.append(child)
 	if patterns.size():
@@ -33,10 +33,12 @@ func fire_projectile(time):
 	else:
 		var new_projectile = projectile.instance()
 		scene.add_child(new_projectile)
-		new_projectile.type = type
+		new_projectile.lifetime = projectile_lifetime
+		new_projectile.init()
 		new_projectile.direction = direction + rotation
 		new_projectile.speed = projectile_speed
 		new_projectile.position = global_position
+		new_projectile.type = type
 
 var reload = 0
 var time_passed = 0
