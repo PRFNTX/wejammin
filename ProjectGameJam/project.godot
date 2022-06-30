@@ -14,14 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BasicTurret.gd"
 }, {
-"base": "Area2D",
+"base": "Node2D",
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://Projectile.gd"
+}, {
+"base": "Node",
+"class": "ProjectilePattern",
+"language": "GDScript",
+"path": "res://ProjectilePattern.gd"
+}, {
+"base": "Node",
+"class": "TurretScript",
+"language": "GDScript",
+"path": "res://TurretScript.gd"
 } ]
 _global_script_class_icons={
 "BasicTurret": "",
-"Projectile": ""
+"Projectile": "",
+"ProjectilePattern": "",
+"TurretScript": ""
 }
 
 [application]

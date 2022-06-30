@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://PlayerNode.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Projectile.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BasicTilemap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scene1.gd" type="Script" id=6]
+[ext_resource path="res://Turrets/ScriptedTurret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Turrets/TurretScript.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 63, 19.75 )
@@ -45,13 +47,53 @@ offset = 1867.67
 projectile = ExtResource( 2 )
 
 [node name="PlayerNode" parent="BasicTilemap" instance=ExtResource( 1 )]
-position = Vector2( 827, 172 )
+position = Vector2( 1205, 417 )
 collision_layer = 0
 
 [node name="Projectile" parent="BasicTilemap" instance=ExtResource( 2 )]
 position = Vector2( 260, 221 )
 direction = 0.0
 type = 1
+
+[node name="ScriptedTurret" parent="BasicTilemap" instance=ExtResource( 7 )]
+position = Vector2( 1209, 334 )
+direction = 0.0
+
+[node name="Rotate" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 8 )]
+action_type = 3
+rotate/radians = 3.14
+rotate/time = 2.0
+
+[node name="LEFT" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 8 )]
+action_type = 2
+move/direction = 3.14
+move/speed = 200
+move/time = 2.0
+
+[node name="shoot" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 8 )]
+action_type = 4
+shoot/projectile = ExtResource( 2 )
+shoot/projectile_speed = null
+shoot/direction = null
+shoot/type = null
+
+[node name="rotate" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 8 )]
+action_type = 3
+rotate/radians = 1.57
+rotate/time = 2.0
+
+[node name="down" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 8 )]
+action_type = 2
+move/direction = 4.71
+move/speed = 200
+move/time = 2.0
+
+[node name="shoot2" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 8 )]
+action_type = 4
+shoot/projectile = ExtResource( 2 )
+shoot/projectile_speed = null
+shoot/direction = null
+shoot/type = null
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 832, 87 )
