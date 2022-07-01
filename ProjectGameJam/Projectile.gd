@@ -52,8 +52,9 @@ func hit_by_projectile(in_type):
 	#start_timer(1, "set_active")
 
 func set_passive():
-	sprite.color = Color.blue
-	mode = PASSIVE
+	pass
+	#sprite.color = Color.blue
+	#mode = PASSIVE
 	#if type == projectile_types.RED:
 	#	projectile.set_collision_layer_bit(LAYER_RED, false)
 	#	#$passifier.set_collision_mask_bit(LAYER_RED, false)
