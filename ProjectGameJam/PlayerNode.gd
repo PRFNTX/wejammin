@@ -79,6 +79,12 @@ func _physics_process(delta):
 		vertical_speed
 	).normalized()*player_speed
 	var collision = move_and_slide(initial_velocity)
+	
+func got_charge_item():
+	if current_action_points_value == max_action_points_value and can_player_do_action:
+		pass
+	else:
+		charge_action_bar(current_action_points_value + 1)
 
 func hit_by_projectile(type):
 	if type == Projectile.projectile_types.RED:

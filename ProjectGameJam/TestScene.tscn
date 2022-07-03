@@ -57,7 +57,6 @@ type = 1
 
 [node name="ScriptedTurret" parent="BasicTilemap" instance=ExtResource( 7 )]
 position = Vector2( 1209, 334 )
-direction = 0.0
 
 [node name="Rotate" parent="BasicTilemap/ScriptedTurret" instance=ExtResource( 8 )]
 action_type = 3

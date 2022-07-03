@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://DungeonTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Turrets/TurretScript.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Turrets/ScriptedTurret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BulletPatterns/CirclePattern.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Projectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ChargeItem.tscn" type="PackedScene" id=7]
 
 [node name="Level3" type="Node2D"]
 
@@ -29,12 +30,6 @@ fire_rate = 1.5
 position = Vector2( 191, 1060 )
 spawn_scene = NodePath("../FloorLayer")
 
-[node name="FloorLayer2" type="TileMap" parent="."]
-position = Vector2( 1, 0 )
-collision_layer = 12
-collision_mask = 12
-format = 1
-
 [node name="LethalSingleTurret2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -204, -219 )
 direction = -0.01
@@ -51,30 +46,20 @@ fire_rate = 1.5
 [node name="CirclePattern" parent="LethalCircularTurret" instance=ExtResource( 5 )]
 number = 8
 
-[node name="GreenTurrent" parent="." instance=ExtResource( 4 )]
-position = Vector2( 93, -548 )
-projectile_lifetime = 0.1
-type = 1
+[node name="ChargeItem" parent="." instance=ExtResource( 7 )]
+position = Vector2( 434, 733 )
 
-[node name="GreenTurrent2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -1041, -661 )
-projectile_lifetime = 0.1
-type = 1
+[node name="ChargeItem2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 112, -545 )
 
-[node name="GreenTurrent3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -849, -1111 )
-projectile_lifetime = 0.1
-type = 1
+[node name="ChargeItem3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -886, -254 )
 
-[node name="GreenTurrent4" parent="." instance=ExtResource( 4 )]
-position = Vector2( -896, -256 )
-projectile_lifetime = 0.1
-type = 1
+[node name="ChargeItem4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -986, -562 )
 
-[node name="GreenTurrent5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 443, 740 )
-projectile_lifetime = 0.1
-type = 1
+[node name="ChargeItem5" parent="." instance=ExtResource( 7 )]
+position = Vector2( -839, -1120 )
 
 [node name="RotatingTurret" parent="." instance=ExtResource( 4 )]
 position = Vector2( 505, 613 )
@@ -94,3 +79,9 @@ shoot/projectile = ExtResource( 6 )
 shoot/projectile_speed = null
 shoot/direction = null
 shoot/type = null
+
+[node name="FloorLayer2" type="TileMap" parent="."]
+position = Vector2( 1, 0 )
+collision_layer = 12
+collision_mask = 12
+format = 1
