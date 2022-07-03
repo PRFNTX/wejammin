@@ -11,7 +11,8 @@ func _ready():
 
 func _on_Timer_timeout():
 	#BUG
-	var action_points = get_node("PlayerNode").get("current_action_points_value")
+	var player = Player.new()
+	var action_points = player.current_action_points_value
 	print("player")
 	if action_points < 5:
 		print("not enough action points")

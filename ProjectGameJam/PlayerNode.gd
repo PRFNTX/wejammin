@@ -11,7 +11,7 @@ var max_health = 5
 var current_health = 5 setget change_health
 
 var max_action_points_value = 5
-var current_action_points_value = 0
+var current_action_points_value = 0 setget charge_action_bar
 var initial_action_point_value = 0
 var can_player_do_action = false
 
