@@ -110,7 +110,7 @@ shoot/type = null
 position = Vector2( 1041, 889 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 60.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

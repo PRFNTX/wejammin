@@ -10,9 +10,10 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	#BUG
 	var player = Player.new()
 	var action_points = player.current_action_points_value
-	print("player")
-	if action_points < 5:
-		print("not enough action points")
+	var max_action_points = player.max_action_points_value
+	if action_points < max_action_points:
+		print("Timer over. Not enough action points. You Lose")
+	else:
+		print("Timer over. You got enough action points, you won!")
