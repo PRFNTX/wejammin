@@ -15,6 +15,7 @@ var current_action_points_value = 0
 var initial_action_point_value = 0
 var can_player_do_action = false
 
+class_name Player
 
 func _ready():
 	$Healthbar.max_value = max_health

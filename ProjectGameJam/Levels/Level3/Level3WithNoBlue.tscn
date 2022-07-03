@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://DungeonTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Turrets/TurretScript.tscn" type="PackedScene" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://BulletPatterns/CirclePattern.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Projectile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ChargeItem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Course.gd" type="Script" id=8]
 
 [node name="Level3" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="FloorLayer" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -106,3 +108,9 @@ shoot/type = null
 
 [node name="ChargeItem6" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1041, 889 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

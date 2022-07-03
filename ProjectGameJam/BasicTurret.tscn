@@ -11,4 +11,4 @@ script = ExtResource( 1 )
 rotation = -1.5708
 
 [node name="RangeIndicator" parent="." instance=ExtResource( 3 )]
-position = Vector2( 800, 0 )
+position = Vector2( 1600, 0 )
