@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Projectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DungeonTileSet.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://BasicTurret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Turrets/TurretScript.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Turrets/ScriptedTurret.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GreenProjectile.tscn" type="PackedScene" id=7]
 
 [node name="Level2" type="Node2D"]
 
@@ -20,19 +21,22 @@ tile_data = PoolIntArray( 5, 1, 131072, 6, 1, 0, 7, 1, 131072, 8, 1, 131072, 9, 
 [node name="ScriptedTurret" parent="." instance=ExtResource( 6 )]
 position = Vector2( 68, 1980 )
 direction = -1.57
-projectile_lifetime = 4.0
+projectile_lifetime = 5.4
 fire_rate = 1.0
+type = 1
+projectile = ExtResource( 7 )
+scene_path = NodePath("../FloorLayer")
 
 [node name="Right" parent="ScriptedTurret" instance=ExtResource( 5 )]
 action_type = 2
-order = 1
+time = 5.0
 move/direction = null
 move/speed = 200
 move/time = 5.0
 
 [node name="Left" parent="ScriptedTurret" instance=ExtResource( 5 )]
 action_type = 2
-order = 2
+time = 5.0
 move/direction = 3.14
 move/speed = 200
 move/time = 5.0
@@ -40,90 +44,91 @@ move/time = 5.0
 [node name="ScriptedTurret2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 514, 1976 )
 direction = -1.57
-projectile_lifetime = 4.0
+projectile_lifetime = 5.4
 fire_rate = 1.0
+scene_path = NodePath("../FloorLayer")
 
 [node name="RIGHT" parent="ScriptedTurret2" instance=ExtResource( 5 )]
 action_type = 2
-order = 1
+time = 2.5
 move/direction = null
 move/speed = 200
 move/time = 2.5
 
 [node name="LEFT" parent="ScriptedTurret2" instance=ExtResource( 5 )]
 action_type = 2
-order = 2
+time = 5.0
 move/direction = 3.14
 move/speed = 200
 move/time = 5.0
 
 [node name="RIGHT2" parent="ScriptedTurret2" instance=ExtResource( 5 )]
 action_type = 2
-order = 3
+time = 2.5
 move/direction = null
 move/speed = 200
 move/time = 2.5
 
 [node name="ScriptedTurret3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 742, 1351 )
-projectile_lifetime = 2.2
+projectile_lifetime = 2.6
 fire_rate = 1.0
 type = 1
+scene_path = NodePath("../FloorLayer")
 
 [node name="rotate" parent="ScriptedTurret3" instance=ExtResource( 5 )]
 action_type = 3
-order = 1
-rotate/radians = 0.012
-rotate/time = 0.004
+time = 0.01
+rotate/radians = 0.04
+rotate/time = 0.01
 
 [node name="shoot" parent="ScriptedTurret3" instance=ExtResource( 5 )]
 action_type = 4
-order = 2
 shoot/projectile = ExtResource( 1 )
 shoot/projectile_speed = 200
 shoot/direction = 3.14
 shoot/type = 0
+shoot/lifetime = 0
 
 [node name="shoot2" parent="ScriptedTurret3" instance=ExtResource( 5 )]
 action_type = 4
-order = 2
 shoot/projectile = ExtResource( 1 )
 shoot/projectile_speed = 200
 shoot/direction = 0.0
 shoot/type = 1
+shoot/lifetime = 1
 
 [node name="ScriptedTurret4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 710, 453 )
-direction = -3.12
 projectile_lifetime = 1.7
 fire_rate = 1.0
 type = 1
+scene_path = NodePath("../FloorLayer")
 
 [node name="rotate" parent="ScriptedTurret4" instance=ExtResource( 5 )]
 action_type = 3
-order = 1
+time = 0.01
 rotate/radians = -0.108
 rotate/time = 0.01
 
 [node name="shoot" parent="ScriptedTurret4" instance=ExtResource( 5 )]
 action_type = 4
-order = 2
 shoot/projectile = ExtResource( 1 )
 shoot/projectile_speed = 200
 shoot/direction = 3.14
 shoot/type = 0
+shoot/lifetime = 0
 
 [node name="shoot2" parent="ScriptedTurret4" instance=ExtResource( 5 )]
 action_type = 4
-order = 2
 shoot/projectile = ExtResource( 1 )
 shoot/projectile_speed = 200
 shoot/direction = 0.0
 shoot/type = 1
+shoot/lifetime = 1
 
 [node name="ScriptedTurret5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 961, 708 )
-direction = -3.12
 projectile_lifetime = 1.7
 fire_rate = 1.0
 type = 1
@@ -131,25 +136,25 @@ scene_path = NodePath("../FloorLayer")
 
 [node name="rotate" parent="ScriptedTurret5" instance=ExtResource( 5 )]
 action_type = 3
-order = 1
+time = 0.01
 rotate/radians = -0.108
 rotate/time = 0.01
 
 [node name="shoot" parent="ScriptedTurret5" instance=ExtResource( 5 )]
 action_type = 4
-order = 2
 shoot/projectile = ExtResource( 1 )
 shoot/projectile_speed = 200
 shoot/direction = 3.14
 shoot/type = 0
+shoot/lifetime = 0
 
 [node name="shoot2" parent="ScriptedTurret5" instance=ExtResource( 5 )]
 action_type = 4
-order = 2
 shoot/projectile = ExtResource( 1 )
 shoot/projectile_speed = 200
 shoot/direction = 0.0
 shoot/type = 1
+shoot/lifetime = 1
 
 [node name="SpawnLocation" parent="." instance=ExtResource( 3 )]
 position = Vector2( 388, 1300 )

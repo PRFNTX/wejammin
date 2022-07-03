@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Turrets/ScriptedTurret.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Turrets/TurretScript.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Projectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DungeonTileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://SpawnLocation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GreenProjectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://BasicTurret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://RedProjectile.tscn" type="PackedScene" id=8]
+
+[node name="Level2" type="Node2D"]
+
+[node name="SpawnLocation" parent="." instance=ExtResource( 5 )]
+position = Vector2( -186, -66 )
+spawn_scene = NodePath("../FloorLayer")
+
+[node name="FloorLayer" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 8
+collision_mask = 8
+format = 1
+tile_data = PoolIntArray( -65539, 1, 131072, -65538, 1, 131072, -65537, 1, 131072, -131072, 1, 131072, -131071, 1, 131072, -131070, 1, 131072, -131069, 1, 131072, -131068, 1, 131072, -131067, 1, 131072, -3, 1, 131072, -2, 1, 131073, -1, 1, 131072, -65536, 1, 131072, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 131072, 65533, 1, 131072, 65534, 1, 131073, 65535, 1, 131072, 0, 1, 131072, 1, 1, 131073, 2, 1, 131073, 3, 1, 131073, 4, 1, 131073, 5, 1, 131072, 6, 1, 131072, 7, 1, 65536, 8, 1, 131072, 131069, 1, 131072, 131070, 1, 131073, 131071, 1, 131072, 65536, 1, 131072, 65537, 1, 131073, 65538, 1, 131073, 65539, 1, 131073, 65540, 1, 131073, 65541, 1, 131073, 65542, 1, 131073, 65543, 1, 131073, 65544, 1, 131072, 196605, 1, 131072, 196606, 1, 131073, 196607, 1, 131072, 131072, 1, 131072, 131073, 1, 131073, 131074, 1, 131073, 131075, 1, 131072, 131076, 1, 131072, 131077, 1, 131072, 131078, 1, 131072, 131079, 1, 131072, 131080, 1, 131072, 262141, 1, 131072, 262142, 1, 131073, 262143, 1, 131072, 196608, 1, 131074, 196609, 1, 131073, 196610, 1, 131073, 196611, 1, 131072, 196612, 1, 131072, 327677, 1, 131072, 327678, 1, 131073, 327679, 1, 131072, 262144, 1, 131072, 262145, 1, 131073, 262146, 1, 131073, 262147, 1, 131072, 262148, 1, 131072, 393213, 1, 131072, 393214, 1, 131073, 393215, 1, 131072, 327680, 1, 131072, 327681, 1, 131073, 327682, 1, 131073, 327683, 1, 131072, 327684, 1, 131072, 458749, 1, 131072, 458750, 1, 131073, 458751, 1, 131072, 393216, 1, 131072, 393217, 1, 131073, 393218, 1, 131073, 393219, 1, 131072, 393220, 1, 131072, 524285, 1, 131072, 524286, 1, 131073, 524287, 1, 131072, 458752, 1, 131072, 458753, 1, 131073, 458754, 1, 131073, 458755, 1, 131072, 458756, 1, 131072, 589821, 1, 131072, 589822, 1, 131073, 589823, 1, 131072, 524288, 1, 131074, 524289, 1, 131073, 524290, 1, 131073, 524291, 1, 131073, 524292, 1, 131072, 655357, 1, 131072, 655358, 1, 131073, 655359, 1, 131072, 589824, 1, 131072, 589825, 1, 131073, 589826, 1, 131073, 589827, 1, 131072, 589828, 1, 131072, 720893, 1, 131072, 720894, 1, 131073, 720895, 1, 131072, 655360, 1, 131072, 655361, 1, 131073, 655362, 1, 131073, 655363, 1, 131072, 786429, 1, 131072, 786430, 1, 131073, 786431, 1, 131072, 720896, 1, 131072, 720897, 1, 131073, 720898, 1, 131073, 720899, 1, 131072, 851965, 1, 131072, 851966, 1, 131073, 851967, 1, 131072, 786432, 1, 131072, 786433, 1, 131073, 786434, 1, 131073, 786435, 1, 131072, 917501, 1, 131072, 917502, 1, 131073, 917503, 1, 131073, 851968, 1, 131073, 851969, 1, 131073, 851970, 1, 131073, 851971, 1, 131072, 983037, 1, 131072, 983038, 1, 131072, 983039, 1, 131072, 917504, 1, 131072, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 128, -75 )
+
+[node name="ScriptedTurret3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 162, -75 )
+direction = 1.57
+projectile_speed = 72.0
+projectile_lifetime = 19.5
+fire_rate = 1.0
+projectile = ExtResource( 8 )
+
+[node name="TurretScript3" parent="ScriptedTurret3" instance=ExtResource( 2 )]
+action_type = 5
+time = 0.0
+reload/projectile = ExtResource( 3 )
+reload/projectile_speed = null
+reload/direction = null
+reload/type = null
+reload/lifetime = null
+reload/bullet_pattern = null
+
+[node name="TurretScript" parent="ScriptedTurret3" instance=ExtResource( 2 )]
+order = 1
+time = 5.0
+
+[node name="TurretScript2" parent="ScriptedTurret3" instance=ExtResource( 2 )]
+action_type = 5
+order = 2
+time = 0.0
+reload/projectile = ExtResource( 3 )
+reload/projectile_speed = null
+reload/direction = null
+reload/type = null
+reload/lifetime = null
+reload/bullet_pattern = null
+
+[node name="TurretScript4" parent="ScriptedTurret3" instance=ExtResource( 2 )]
+order = 1
+time = 5.0
+
+[node name="ScriptedTurret2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 209, -75 )
+direction = 1.57
+projectile_speed = 72.0
+projectile_lifetime = 19.5
+fire_rate = 1.0
+projectile = ExtResource( 8 )
+
+[node name="ScriptedTurret" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, -73 )
+direction = 1.57
+projectile_speed = 72.0
+projectile_lifetime = 19.5
+fire_rate = 1.0
+projectile = ExtResource( 8 )
+
+[node name="TurretScript3" parent="ScriptedTurret" instance=ExtResource( 2 )]
+action_type = 5
+time = 0.0
+reload/projectile = ExtResource( 3 )
+reload/projectile_speed = null
+reload/direction = null
+reload/type = null
+reload/lifetime = null
+reload/bullet_pattern = null
+
+[node name="TurretScript" parent="ScriptedTurret" instance=ExtResource( 2 )]
+order = 1
+time = 5.0
+
+[node name="TurretScript2" parent="ScriptedTurret" instance=ExtResource( 2 )]
+action_type = 5
+order = 2
+time = 0.0
+reload/projectile = ExtResource( 3 )
+reload/projectile_speed = null
+reload/direction = null
+reload/type = null
+reload/lifetime = null
+reload/bullet_pattern = null
+
+[node name="TurretScript4" parent="ScriptedTurret" instance=ExtResource( 2 )]
+order = 1
+time = 5.0
+
+[node name="ScriptedTurret4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 303, -73 )
+direction = 1.57
+projectile_speed = 72.0
+projectile_lifetime = 19.5
+fire_rate = 1.0
+projectile = ExtResource( 8 )
+
+[node name="ScriptedTurret5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 350, -73 )
+direction = 1.57
+projectile_speed = 72.0
+projectile_lifetime = 19.5
+fire_rate = 1.0
+projectile = ExtResource( 8 )
+
+[node name="BasicTurret" parent="." instance=ExtResource( 7 )]
+position = Vector2( 162, 1849 )
+direction = -1.57
+projectile_speed = 100.0
+projectile_lifetime = 20.0
+fire_rate = 10.0
+projectile = ExtResource( 8 )
+scene_path = NodePath("../FloorLayer")
+
+[node name="BasicTurret2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 209, 1847 )
+direction = -1.57
+projectile_speed = 100.0
+projectile_lifetime = 20.0
+fire_rate = 10.0
+type = 1
+projectile = ExtResource( 6 )
+scene_path = NodePath("../FloorLayer")
+
+[node name="BasicTurret3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 256, 1847 )
+direction = -1.57
+projectile_speed = 100.0
+projectile_lifetime = 20.0
+fire_rate = 10.0
+projectile = ExtResource( 8 )
+scene_path = NodePath("../FloorLayer")
+
+[node name="BasicTurret4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 303, 1847 )
+direction = -1.57
+projectile_speed = 100.0
+projectile_lifetime = 20.0
+fire_rate = 10.0
+type = 1
+projectile = ExtResource( 6 )
+scene_path = NodePath("../FloorLayer")
+
+[node name="BasicTurret5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 350, 1847 )
+direction = -1.57
+projectile_speed = 100.0
+projectile_lifetime = 20.0
+fire_rate = 10.0
+type = 1
+projectile = ExtResource( 6 )
+scene_path = NodePath("../FloorLayer")
+
+[node name="FloorLayer2" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 12
+collision_mask = 12
+format = 1

@@ -7,12 +7,13 @@ enum ACTIONS {
 	MOVE=2,
 	ROTATE=3,
 	SHOOT=4,
-	CUSTOM=5,
+	RELOAD=5,
+	CUSTOM=6,
 }
 export(ACTIONS) var action_type = ACTIONS.DELAY
 export(int) var order = 0
 # ALL
-var time = 0.1
+export var time = 0.1
 # DELAY
 
 # MOVE
@@ -22,11 +23,15 @@ var move_speed = null
 # ROTATE
 var rotate_radians = 0
 
-# SHOOT
+# SHOOT/RELOAD
 var projectile = preload("res://Projectile.tscn")
 var projectile_speed = null
 var projectile_direction = null
 var projectile_type = null
+var projectile_lifetime = null
+
+# RELOAD
+var bullet_pattern = null
 
 
 var properties = {
@@ -69,7 +74,7 @@ var properties = {
 	],
 	ACTIONS.SHOOT: [
 		{
-			"hint": PROPERTY_HINT_RESOURCE_TYPE,
+			"hint": PROPERTY_HINT_FILE,
 			"usage": PROPERTY_USAGE_DEFAULT,
 			"name": "shoot/projectile",
 			"type": TYPE_STRING,
@@ -94,6 +99,54 @@ var properties = {
 			"name": "shoot/type",
 			"type": TYPE_INT,
 		},
+		{
+			"hint": PROPERTY_HINT_RANGE,
+			"hint_string": "-6.28,6.28,0.1",
+			"usage": PROPERTY_USAGE_DEFAULT,
+			"name": "shoot/lifetime",
+			"type": TYPE_REAL,
+		},
+	],
+	ACTIONS.RELOAD: [
+		{
+			"hint": PROPERTY_HINT_FILE,
+			"usage": PROPERTY_USAGE_DEFAULT,
+			"name": "reload/projectile",
+			"type": TYPE_STRING,
+		},
+		{
+			"hint": PROPERTY_HINT_NONE,
+			"usage": PROPERTY_USAGE_DEFAULT,
+			"name": "reload/projectile_speed",
+			"type": TYPE_INT,
+		},
+		{
+			"hint": PROPERTY_HINT_RANGE,
+			"hint_string": "-6.28,6.28",
+			"usage": PROPERTY_USAGE_DEFAULT,
+			"name": "reload/direction",
+			"type": TYPE_REAL,
+		},
+		{
+			"hint": PROPERTY_HINT_ENUM,
+			"hint_string": "GREEN,RED",
+			"usage": PROPERTY_USAGE_DEFAULT,
+			"name": "reload/type",
+			"type": TYPE_INT,
+		},
+		{
+			"hint": PROPERTY_HINT_RANGE,
+			"hint_string": "-6.28,6.28,0.1",
+			"usage": PROPERTY_USAGE_DEFAULT,
+			"name": "reload/lifetime",
+			"type": TYPE_REAL,
+		},
+		{
+			"hint": PROPERTY_HINT_FILE,
+			"usage": PROPERTY_USAGE_DEFAULT,
+			"name": "reload/bullet_pattern",
+			"type": TYPE_STRING,
+		},
 	],
 	ACTIONS.CUSTOM: [],
 }
@@ -108,14 +161,18 @@ func _get(property):
 			return move_speed
 		"rotate/radians":
 			return rotate_radians
-		"shoot/projectile":
+		"shoot/projectile", "reload/projectile":
 			return projectile
-		"shoot/projectile_speed":
+		"shoot/projectile_speed", "reload/speed":
 			return projectile_speed
-		"shoot/direction":
+		"shoot/direction", "reload/direction":
 			return projectile_direction
-		"shoot/type":
+		"shoot/type", "reload/type":
 			return projectile_type
+		"shoot/lifetime", "reload/lifetime":
+			return projectile_type
+		"reload/bullet_pattern":
+			return bullet_pattern
 
 func _set(property, value):
 	match property:
@@ -133,19 +190,25 @@ func _set(property, value):
 		"rotate/radians":
 			rotate_radians = value
 			return true
-		"shoot/projectile":
+		"shoot/projectile", "reload/projectile":
 			projectile = value
 			return true
-		"shoot/projectile_speed":
+		"shoot/projectile_speed", "reload/speed":
 			if value == 0:
 				return true
 			projectile_speed = value
 			return true
-		"shoot/direction":
+		"shoot/direction", "reload/direction":
 			projectile_direction = value
 			return true
-		"shoot/type":
+		"shoot/type", "reload/type":
 			projectile_type = value
+			return true
+		"shoot/lifetime", "reload/lifetime":
+			projectile_type = value
+			return true
+		"reload/bullet_pattern":
+			bullet_pattern = value
 			return true
 		_:
 			return false
@@ -171,6 +234,9 @@ func start():
 		rotate()
 	if action_type == ACTIONS.SHOOT:
 		shoot()
+	if action_type == ACTIONS.RELOAD:
+		reload()
+		
 
 func next():
 	set_process(false)
@@ -226,4 +292,19 @@ func shoot():
 	turret.projectile_speed = init_speed
 	turret.direction = init_dir
 	turret.type = init_type
+	next()
+
+func reload():
+	if projectile_speed != null:
+		turret.projectile_speed = projectile_speed
+	if projectile_direction != null:
+		turret.direction += projectile_direction
+	if projectile_type != null:
+		turret.type = projectile_type
+	if projectile_lifetime != null:
+		turret.projectile_lifetime = projectile_lifetime
+	if projectile != null:
+		turret.projectile = projectile
+	#if bullet_pattern != null:
+	#	turret.projectile = projectile
 	next()

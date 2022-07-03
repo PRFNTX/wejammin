@@ -77,7 +77,7 @@ func start_timer(time, on_timeout):
 	return delay_timer
 
 func _ready():
-	start_timer(speed/800, "set_active")
+	start_timer(speed/(10*speed), "set_active")
 	projectile = $Projectile
 	passifier = $passifier
 	sprite = $Sprite
